@@ -4,6 +4,7 @@ version = "1.0.2"
 description = "Klovy Chat desktop app"
 authors = ["Klovy Systems"]
 edition = "2021"
+license-file = "LICENSE"
 
 [lib]
 name = "klovy_chat_desktop_lib"
