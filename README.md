@@ -1,4 +1,4 @@
-# klovy-chat-application
+# application
 
 [![License: Klovy](https://img.shields.io/badge/License-Klovy-blue.svg)](LICENSE)
 
@@ -24,10 +24,10 @@ Desktop ładuje ten sam frontend co przeglądarka (`https://app.klovy.chat`). Na
 
 | Repo | Rola |
 |------|------|
-| [klovy-chat-backend](https://github.com/Klovy-Systems/klovy-chat-backend) | API i WebSocket |
-| [klovy-chat-frontend](https://github.com/Klovy-Systems/klovy-chat-frontend) | Aplikacja web (`app.klovy.chat`) |
-| [klovy-chat-website](https://github.com/Klovy-Systems/klovy-chat-website) | Strona (`klovy.chat`) |
-| [klovy-chat-application](https://github.com/Klovy-Systems/klovy-chat-application) | Desktop (Tauri) |
+| [backend](https://github.com/klovy-chat/backend) | API i WebSocket |
+| [frontend](https://github.com/klovy-chat/frontend) | Aplikacja web (`app.klovy.chat`) |
+| [website](https://github.com/klovy-chat/website) | Strona (`klovy.chat`) |
+| [application](https://github.com/klovy-chat/application) | Desktop (Tauri) |
 
 ---
 
@@ -54,8 +54,8 @@ Desktop ładuje ten sam frontend co przeglądarka (`https://app.klovy.chat`). Na
 ## Uruchomienie lokalne
 
 ```bash
-git clone https://github.com/Klovy-Systems/klovy-chat-application.git
-cd klovy-chat-application
+git clone https://github.com/klovy-chat/application.git
+cd application
 npm install
 ```
 
@@ -144,7 +144,7 @@ Komenda: `set_unread_badge` w `src-tauri/src/badge.rs`.
 ## Struktura projektu
 
 ```
-klovy-chat-application/
+application/
 ├── src-tauri/
 │   ├── src/                 # Rust: badge, updater, discord_presence
 │   ├── capabilities/        # Uprawnienia okna
@@ -162,7 +162,7 @@ klovy-chat-application/
 
 Kod jest publiczny na [Klovy License](LICENSE). Issue i pull requesty są mile widziane.
 
-1. Zrób [fork](https://github.com/Klovy-Systems/klovy-chat-application/fork)
+1. Zrób [fork](https://github.com/klovy-chat/application/fork)
 2. Utwórz branch: `git checkout -b feature/opis-zmiany`
 3. Commit (bez sekretów i kluczy podpisu)
 4. Otwórz pull request do `main`
@@ -173,7 +173,7 @@ Opisz w PR **co** i **dlaczego**. Poprawki docs i buildów per platforma też s�
 
 ## Bezpieczeństwo
 
-Luki zgłaszaj prywatnie przez [GitHub Security Advisories](https://github.com/Klovy-Systems/klovy-chat-application/security/advisories/new). Nie otwieraj publicznego issue z exploitami.
+Luki zgłaszaj prywatnie przez [GitHub Security Advisories](https://github.com/klovy-chat/application/security/advisories/new). Nie otwieraj publicznego issue z exploitami.
 
 ---
 
@@ -181,4 +181,4 @@ Luki zgłaszaj prywatnie przez [GitHub Security Advisories](https://github.com/K
 
 Kod jest udostępniony na **[Klovy License](LICENSE)** — użycie osobiste, edukacyjne i niekomercyjne. Dystrybucja komercyjna, konkurencyjny komunikator oraz użycie marek Klovy wymagają pisemnej zgody Jakuba Maksymowicza. Zgłoszenie PR, błędu lub audytu bezpieczeństwa oznacza zgodę na warunki kontrybucji z licencji (pkt 7–11).
 
-© 2026 [Jakub Maksymowicz](https://github.com/Klovy-Systems)
+© 2026 [Jakub Maksymowicz](https://github.com/klovy-chat)
