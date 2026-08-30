@@ -4,7 +4,7 @@
 
 The official desktop app of Klovy Chat.
 
-Oficjalna aplikacja desktopowa komunikatora **Klovy Chat** (Klovy Systems) — opakowanie [app.klovy.chat](https://app.klovy.chat) w [Tauri 2](https://tauri.app).
+Oficjalna aplikacja desktopowa komunikatora **Klovy Chat** — opakowanie [app.klovy.chat](https://app.klovy.chat) w [Tauri 2](https://tauri.app).
 
 Wspierane platformy: Windows, macOS, Linux. Mobile (Android / iOS) nie jest częścią tego projektu.
 
@@ -181,4 +181,4 @@ Luki zgłaszaj prywatnie przez [GitHub Security Advisories](https://github.com/k
 
 Kod jest udostępniony na **[Klovy License](LICENSE)** — użycie osobiste, edukacyjne i niekomercyjne. Dystrybucja komercyjna, konkurencyjny komunikator oraz użycie marek Klovy wymagają pisemnej zgody Jakuba Maksymowicza. Zgłoszenie PR, błędu lub audytu bezpieczeństwa oznacza zgodę na warunki kontrybucji z licencji (pkt 7–11).
 
-© 2026 [Jakub Maksymowicz](https://github.com/klovy-chat)
+© 2026 [Jakub Maksymowicz](https://github.com/Klovy06)
