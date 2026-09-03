@@ -5,11 +5,14 @@
   "windows": ["main"],
   "platforms": ["linux", "macOS", "windows"],
   "remote": {
-    "urls": ["https://app.klovy.chat"]
+    "urls": [
+      "https://app.klovy.chat",
+      "https://app.klovy.chat/*"
+    ]
   },
   "permissions": [
     "core:default",
-    "opener:default",
+    "allow-safe-urls",
     "allow-set-unread-badge"
   ]
 }
