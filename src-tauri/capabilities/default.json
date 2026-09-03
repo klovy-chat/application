@@ -6,7 +6,7 @@
   "platforms": ["linux", "macOS", "windows"],
   "permissions": [
     "core:default",
-    "opener:default",
+    "allow-safe-urls",
     "allow-set-unread-badge"
   ]
 }

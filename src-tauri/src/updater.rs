@@ -36,11 +36,12 @@ async fn check_and_install<R: Runtime>(app: AppHandle<R>) -> Result<(), Box<dyn 
         return Ok(());
     };
 
-    let (tx, rx) = std::sync::mpsc::channel();
     let dialog_app = app.clone();
     let version = update.version.clone();
+    let restart_app = app.clone();
+
     app.run_on_main_thread(move || {
-        let install = dialog_app
+        dialog_app
             .dialog()
             .message(format!(
                 "Dostępna jest nowa wersja {version}.\n\nZainstalować teraz? Aplikacja uruchomi się ponownie."
@@ -51,17 +52,20 @@ async fn check_and_install<R: Runtime>(app: AppHandle<R>) -> Result<(), Box<dyn 
                 "Zainstaluj".into(),
                 "Później".into(),
             ))
-            .blocking_show();
-        let _ = tx.send(install);
+            .show(move |install| {
+                if install {
+                    tauri::async_runtime::spawn(async move {
+                        if let Err(err) = update
+                            .download_and_install(|_, _| {}, || {})
+                            .await
+                        {
+                            eprintln!("Błąd podczas instalacji aktualizacji: {err}");
+                        } else {
+                            restart_app.restart();
+                        }
+                    });
+                }
+            });
     })?;
 
-    if !rx.recv().unwrap_or(false) {
-        return Ok(());
-    }
-
-    update
-        .download_and_install(|_, _| {}, || {})
-        .await?;
-
-    app.restart();
-}
+    Ok(())}

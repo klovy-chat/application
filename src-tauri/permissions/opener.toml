@@ -1,0 +1,11 @@
+"$schema" = "../../gen/schemas/desktop-schema.json"
+[[permission]]
+identifier = "allow-safe-urls"
+description = "Zezwala na otwieranie tylko bezpiecznych adresów URL."
+commands.allow = ["open"]
+
+[[permission.scope.allow]]
+url = "http://*/*"
+
+[[permission.scope.allow]]
+url = "https://*/*"
