@@ -1,6 +1,6 @@
 [package]
 name = "klovy-chat-desktop"
-version = "1.0.2"
+version = "1.0.4"
 description = "Klovy Chat desktop app"
 authors = ["Klovy Systems"]
 edition = "2021"
