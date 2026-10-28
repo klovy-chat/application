@@ -1,0 +1,4 @@
+[[permission]]
+identifier = "allow-desktop-version"
+description = "Allows the hosted web app to read the native desktop version"
+commands.allow = ["desktop_version"]

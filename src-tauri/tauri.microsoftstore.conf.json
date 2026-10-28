@@ -7,10 +7,5 @@
         "type": "offlineInstaller"
       }
     }
-  },
-  "plugins": {
-    "updater": {
-      "endpoints": []
-    }
   }
 }

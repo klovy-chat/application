@@ -27,7 +27,7 @@ dist-ssr
 *.p12
 AuthKey_*.p8
 
-# Tauri updater private keys — never commit
+# Private keys — never commit
 *.key
 *.key.pub
 

@@ -13,6 +13,6 @@
   "permissions": [
     "core:default",
     "allow-safe-urls",
-    "allow-set-unread-badge"
+    "allow-desktop-version"
   ]
 }

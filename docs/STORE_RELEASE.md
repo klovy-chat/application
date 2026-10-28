@@ -19,7 +19,7 @@ Artefakty trafiają do `src-tauri/target/release/bundle/`.
 ## Windows — dystrybucja bezpośrednia
 
 ```powershell
-cd klovy-chat-application
+cd application
 npm install
 npm run build:windows
 ```
@@ -41,7 +41,7 @@ Tak, **można wystawić aplikację w Microsoft Store**. Oficjalna ścieżka Taur
 2. Nowy produkt → **EXE or MSI app** → zarezerwuj nazwę
 3. Instalator **offline** (WebView2 w paczce) — wymagane przez Store
 4. Instalacja **cicha** (silent install)
-5. **Publisher ≠ product name** — mamy `publisher: "Klovy Systems"`, `productName: "Klovy Chat"` ✓
+5. **Publisher ≠ product name** — `publisher` musi odpowiadać wydawcy skonfigurowanemu w Microsoft Partner Center; obecna wartość to `"Klovy Chat"`.
 6. Instalator **podpisany certyfikatem** (code signing) — Store weryfikuje Win32 installery
 
 ### Build pod Microsoft Store

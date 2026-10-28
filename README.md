@@ -12,7 +12,7 @@ Wspierane platformy: Windows, macOS, Linux. Mobile (Android / iOS) nie jest czę
 
 ## O projekcie
 
-Desktop ładuje ten sam frontend co przeglądarka (`https://app.klovy.chat`). Native warstwa dodaje instalatory, auto-update, badge nieprzeczytanych, Discord Rich Presence i integracje ze sklepami (Microsoft Store, Mac App Store).
+Desktop ładuje ten sam frontend co przeglądarka (`https://app.klovy.chat`). Native warstwa dodaje instalatory, Discord Rich Presence i integracje ze sklepami (Microsoft Store, Mac App Store).
 
 | Platforma | Dystrybucja |
 |-----------|-------------|
@@ -34,8 +34,6 @@ Desktop ładuje ten sam frontend co przeglądarka (`https://app.klovy.chat`). Na
 ## Funkcje
 
 - Okno natywne z aplikacją webową Klovy Chat
-- Auto-update z GitHub Releases (poza Microsoft Store)
-- Badge nieprzeczytanych (Dock / pasek zadań)
 - Discord Rich Presence
 - Instalatory per platforma i warianty sklepowe
 
@@ -45,7 +43,7 @@ Desktop ładuje ten sam frontend co przeglądarka (`https://app.klovy.chat`). Na
 
 - **Node.js** 18+
 - **Rust** ([rustup](https://rustup.rs))
-- **Windows:** MSVC Build Tools, WebView2 Runtime (dev)
+- **Windows 10 (version 1803+) / 11:** MSVC Build Tools, WebView2 Runtime (dev). Windows 95, 98, 2000, XP, Vista, 7, 8 and 8.1 are not supported by Tauri 2.
 - **macOS:** Xcode (build + opcjonalnie App Store)
 - **Linux:** `libwebkit2gtk-4.1-dev`, `libayatana-appindicator3-dev`, `librsvg2-dev`
 
@@ -105,7 +103,7 @@ Discord Rich Presence: `src-tauri/tauri.conf.json` → `plugins.discordPresence`
 GitHub Actions (oficjalne repo):
 
 - [`.github/workflows/build.yml`](.github/workflows/build.yml) — artefakty Windows / macOS / Linux
-- [`.github/workflows/release.yml`](.github/workflows/release.yml) — tag, podpisy, `latest.json`
+- [`.github/workflows/release.yml`](.github/workflows/release.yml) — tagi i instalatory
 
 Wydanie z `main` (utrzymujący):
 
@@ -114,29 +112,20 @@ npm run release          # 1.0.0 → 1.0.1
 npm run release:minor    # 1.0.1 → 1.1.0
 ```
 
-Albo GitHub → **Actions → Release → Run workflow**. CI podbija wersję, taguje, buduje, podpisuje i wrzuca `latest.json`.
+Albo GitHub → **Actions → Release → Run workflow**. CI podbija wersję, taguje i publikuje instalatory. Aplikacja nie aktualizuje się automatycznie; nową wersję desktop należy pobrać i zainstalować ręcznie. Backend porównuje wersję aplikacji z najnowszym opublikowanym GitHub Release i blokuje żądania HTTP API ze starszego desktopu.
 
-Przy starcie (instalator, nie `tauri dev`) aplikacja sprawdza GitHub Releases i pokazuje **Zainstaluj / Później**. Microsoft Store ma puste `endpoints` (Store sam aktualizuje).
+Frontend jest ładowany bezpośrednio z `https://app.klovy.chat`, więc zmiany w opublikowanej aplikacji webowej są widoczne bez aktualizacji desktopu. Zmiany w natywnej powłoce wymagają wydania i instalacji nowego instalatora. Sam push do GitHub nie publikuje Release; blokowanie starszych wersji zaczyna działać po wydaniu nowej wersji. Backend musi mieć dostęp wychodzący do GitHub Releases.
 
-Klucz podpisu należy do utrzymujących (secret `TAURI_SIGNING_PRIVATE_KEY`). Release musi być publiczny.
+Przy wdrażaniu wymuszania wersji zachowaj kolejność: najpierw backend, potem nowy desktop Release (z komendą odczytu wersji), a na końcu frontend wysyłający wersję desktopu. Backend buforuje najnowszy Release przez maksymalnie 5 minut.
 
----
-
-## Badge nieprzeczytanych
-
-Liczba pochodzi z tytułu strony `app.klovy.chat` (`(N) Klovy Chat`). Desktop ustawia:
-
-- **macOS / Linux** — liczba na ikonie Dock / Unity (`set_badge_count`)
-- **Windows** — czerwona nakładka na ikonie paska zadań (`set_overlay_icon`)
-
-Komenda: `set_unread_badge` w `src-tauri/src/badge.rs`.
+Wersje desktop są publikowane w GitHub Releases.
 
 ---
 
 ## Technologie
 
 - **Tauri 2** — powłoka desktop
-- **Rust** — native (badge, updater, Discord)
+- **Rust** — native (Discord)
 - **Node.js** — CLI Tauri i skrypty wydania
 
 ---
@@ -146,7 +135,7 @@ Komenda: `set_unread_badge` w `src-tauri/src/badge.rs`.
 ```
 application/
 ├── src-tauri/
-│   ├── src/                 # Rust: badge, updater, discord_presence
+│   ├── src/                 # Rust: discord_presence
 │   ├── capabilities/        # Uprawnienia okna
 │   ├── tauri.conf.json      # Konfiguracja główna
 │   └── icons/

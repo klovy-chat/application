@@ -42,8 +42,8 @@
     "category": "SocialNetworking",
     "shortDescription": "Komunikator Klovy Chat",
     "longDescription": "Oficjalna aplikacja desktopowa Klovy Chat — rozmowy, kanały, połączenia głosowe i więcej.",
-    "copyright": "Copyright © Klovy Systems",
-    "publisher": "Klovy Systems",
+    "copyright": "Copyright © Klovy Chat",
+    "publisher": "Klovy Chat",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -93,15 +93,6 @@
       "largeImageKey": "klovy_logo",
       "largeImageText": "Klovy Chat",
       "showElapsed": true
-    },
-    "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDZBM0MyMTk4MjI3RjZCMUEKUldRYWEzOGltQ0U4YWsrWS9ac1g4ZlBTei9WTy9EYmdRMVBvcENBUU5LYTZQOU9DQVJhcFhJTW4K",
-      "endpoints": [
-        "https://github.com/Klovy-Systems/klovy-chat-application/releases/latest/download/latest.json"
-      ],
-      "windows": {
-        "installMode": "passive"
-      }
     }
   }
 }

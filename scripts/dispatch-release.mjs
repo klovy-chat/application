@@ -2,7 +2,7 @@ import { execFileSync, execSync } from "node:child_process";
 
 const bump = process.argv[2] ?? "patch";
 const url =
-  "https://github.com/Klovy-Systems/klovy-chat-application/actions/workflows/release.yml";
+  "https://github.com/klovy-chat/application/actions/workflows/release.yml";
 
 function hasGh() {
   try {
